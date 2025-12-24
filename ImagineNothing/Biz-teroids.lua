@@ -1,29 +1,29 @@
 ---------------------------------BIZ-TEROIDS CONTROL PANEL---------------------------------
-    
-local HGWHrestock = true	-- Should the script restock your Hangar and Warehouse(s)? - true as default
-local HGWHmaxgoods = true 	-- Should the script instantly max out your Hangar and Warehouse(s) stock? - false will restock with mixed goods but it's a bit slower - The four lines below depends on this one - true as default
-local HGsetgood = false 	-- Goods type for Hangar will be random if this is set to false. - false as default
-    local HGgoodtype = 6 	-- 0 = Animal Materials | 1 = Art & Antiques | 2 = Chemicals | 3 = Counterfeit Goods | 4 = Jewelry & Gemstones | 5 = Medical Supplies | 6 = Narcotics  | 7 = Tobacco & Alcohol
-local WHsetgood = false 	-- Goods type for Warehouse(s) will be random if this is set to false. - false as default
-    local WHgoodtype = 6 	-- 0 = Medical Supplies | 1 = Tobacco & Alcohol | 2 = Art & Antiques | 3 = Electronic Goods | 4 = Weapons & Ammo | 5 = Narcotics | 6 = Gemstones | 7 = Animal Materials | 8 = Counterfeit Goods | 9 = Jewelry | 10 = Bullion
-local MCresup = true 		-- Should the script resupply all your MC Businesses? - true as default (idk why would you disable this)
-local MCrestock = true 		-- Should the script restock your MC Businesses? - true as default
-local NCgoods = true 		-- Should the script restock your Nightclub? - true as default
-    
+ 
+local HGWHrestock = true    -- Should the script restock your Hangar and Warehouse(s)? - true as default
+local HGWHmaxgoods = true   -- Should the script instantly max out your Hangar and Warehouse(s) stock? - false will restock with mixed goods but it's a bit slower - The four lines below depends on this one - true as default
+local HGsetgood = false     -- Goods type for Hangar will be random if this is set to false. - false as default
+    local HGgoodtype = 6    -- 0 = Animal Materials | 1 = Art & Antiques | 2 = Chemicals | 3 = Counterfeit Goods | 4 = Jewelry & Gemstones | 5 = Medical Supplies | 6 = Narcotics  | 7 = Tobacco & Alcohol
+local WHsetgood = false     -- Goods type for Warehouse(s) will be random if this is set to false. - false as default
+    local WHgoodtype = 6    -- 0 = Medical Supplies | 1 = Tobacco & Alcohol | 2 = Art & Antiques | 3 = Electronic Goods | 4 = Weapons & Ammo | 5 = Narcotics | 6 = Gemstones | 7 = Animal Materials | 8 = Counterfeit Goods | 9 = Jewelry | 10 = Bullion
+local MCresup = true        -- Should the script resupply all your MC Businesses? - true as default (idk why would you disable this)
+local MCrestock = true      -- Should the script restock your MC Businesses? - true as default
+local NCgoods = true        -- Should the script restock your Nightclub? - true as default
+ 
 ---------------------------------BIZ-TEROIDS CONTROL PANEL---------------------------------
-    
+ 
 script.run_in_callback(function()
 log.verbose("\n\27[4;33mScript\27[m - \27[4;37mBiz-teroids\27[m\nInitialized successfully.\nNo, I'm not changing the name.\n")
     log.warn([[
-    
-        
-            __     This script will start with hangar and warehouses restock,
-    \ ______/ V`-,  then it'll resupply and restock available mc businesses,
-    }        /~~  nightclub restock (not perfect) and popularity bar refill comes next
-    /_)^ --,r'    and lastly it will refill salvage yard reputation and remove the heat
-    |b      |b   from all three money fronts businesses.
-    Added pauses here and there so notifications don't show up all at once.
-    Main logic will start in 10s.								 
+ 
+     
+           __     This script will start with hangar and warehouses restock,
+  \ ______/ V`-,  then it'll resupply and restock available mc businesses,
+   }        /~~  nightclub restock (not perfect) and popularity bar refill comes next
+  /_)^ --,r'    and lastly it will refill salvage yard reputation and remove the heat
+ |b      |b   from all three money fronts businesses.
+ Added pauses here and there so notifications don't show up all at once.
+ Main logic will start in 10s.                               
     ]])
 local whprop, hangarprop, bbizprop, ncprop, syprop, cwprop = 1845299 + 1 + 260 + 128, 1845299 + 1 + 260 + 304, 1845299 + 1 + 260 + 205, 1845299 + 1 + 260 + 364, 1845299 + 1 + 260 + 504, 1882717 + 1 + 158 + 27
     
@@ -31,7 +31,7 @@ local whprop, hangarprop, bbizprop, ncprop, syprop, cwprop = 1845299 + 1 + 260 +
         notify.info("Script - Biz-teroids by ImagineNothing", "Main logic will start in 10s.")
         script.yield(10000)
         
-        if HGWHrestock then	
+        if HGWHrestock then 
             if HGWHmaxgoods then
                 notify.info("Script - Biz-teroids", "Hangar and Warehouse(s) instant max restock enabled.")
             else
@@ -95,7 +95,7 @@ local whprop, hangarprop, bbizprop, ncprop, syprop, cwprop = 1845299 + 1 + 260 +
         else
             notify.info("Script - Biz-teroids", "Hangar & Warehouse restocking disabled. Skipping...")
         end
-    
+ 
 local function GetBusinessSlot(businessName)
     
     local MCbizlocs = {
@@ -131,7 +131,7 @@ local function GetBusinessSlot(businessName)
         end
     end
 end
-    
+ 
         script.yield(3000)
         
         if MCresup then
@@ -316,7 +316,7 @@ end
         else
             notify.error("Script - Biz-teroids", "You don't own a Salvage Yard.")
         end
-    
+ 
         if ScriptGlobal(cwprop + 1):get_int() >= 1 and ScriptGlobal(cwprop + 13):get_int() >= 0 then
             for tycoonh = 24924, 24926 do
                 stats.set_packed_int(tycoonh, 0)
