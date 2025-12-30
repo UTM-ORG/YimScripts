@@ -18,6 +18,7 @@ YimMenuV2 Lua Scripts for latest GTA Online versions.
 - Biz-teroids
 - B to Ragdoll
 - CasinoHeistReset
+- CluckinBellSkip
 - DrDreSkip
 - Enable Independence Day
 - Fast Respawn
